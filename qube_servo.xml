@@ -1,0 +1,18 @@
+
+<mujoco model="qube-servo">
+    <option gravity="0 0 0"/> <!-- Sin gravedad -->
+    <worldbody>
+        <!-- Base fija -->
+        <body name="base" pos="0 0 0">
+            <!-- Primer brazo: rotación horizontal (ángulo phi) -->
+            <joint name="joint_phi" type="hinge" axis="0 0 1" limited="true" range="-1.57 1.57"/>
+            <geom type="capsule" fromto="0 0 0 0.1 0 0" size="0.01" rgba="1 0 0 1"/>
+
+            <!-- Segundo brazo: rotación vertical (ángulo theta) -->
+            <body name="arm" pos="0.1 0 0">
+                <joint name="joint_theta" type="hinge" axis="0 1 0" limited="false"/>
+                <geom type="capsule" fromto="0 0 0 0 0 0.2" size="0.01" rgba="0 0 1 1"/>
+            </body>
+        </body>
+    </worldbody>
+</mujoco>
